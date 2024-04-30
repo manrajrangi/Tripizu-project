@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tripizu</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-Lc/zQl8+elg/F5Mn3d0Tt7rSFtAdE3Z/zSd8a4rUq3Fz2dDG/yJ4YRCt1cJKYh/NqlpD0qScvKog5R7TdH5NQw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header">
+        <div class="header-content">
+            <h1>TRIPIZU</h1>
+        </div>
+        <div class="header-content align-right">
+            <a href="/about.html" id="about-link">ABOUT</a>
+        </div>
+    </div>
+    
+    <!-- Container for the content -->
+    <div id="content">
+        <!-- Container for the cover image -->
+        <div id="coverImageContainer">
+            <div id="coverImage"></div>
+        </div>
+        <div id="container">
+            <!-- Your input and output panels here -->
+            <div id="inputPanel">
+                <form id="weatherForm" onsubmit="handleSubmit(event)" method="POST">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city">
+                    <label for="state">State:</label>
+                    <select id="state" name="state">
+                        <option value="">Select a state</option>
+                        <option value="Alabama">Alabama</option>
+                        <option value="Alaska">Alaska</option>
+                        <option value="Arizona">Arizona</option>
+                        <option value="Arkansas">Arkansas</option>
+                        <option value="California">California</option>
+                        <option value="Colorado">Colorado</option>
+                        <option value="Connecticut">Connecticut</option>
+                        <option value="Delaware">Delaware</option>
+                        <option value="Florida">Florida</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Hawaii">Hawaii</option>
+                        <option value="Idaho">Idaho</option>
+                        <option value="Illinois">Illinois</option>
+                        <option value="Indiana">Indiana</option>
+                        <option value="Iowa">Iowa</option>
+                        <option value="Kansas">Kansas</option>
+                        <option value="Kentucky">Kentucky</option>
+                        <option value="Louisiana">Louisiana</option>
+                        <option value="Maine">Maine</option>
+                        <option value="Maryland">Maryland</option>
+                        <option value="Massachusetts">Massachusetts</option>
+                        <option value="Michigan">Michigan</option>
+                        <option value="Minnesota">Minnesota</option>
+                        <option value="Mississippi">Mississippi</option>
+                        <option value="Missouri">Missouri</option>
+                        <option value="Montana">Montana</option>
+                        <option value="Nebraska">Nebraska</option>
+                        <option value="Nevada">Nevada</option>
+                        <option value="New Hampshire">New Hampshire</option>
+                        <option value="New Jersey">New Jersey</option>
+                        <option value="New Mexico">New Mexico</option>
+                        <option value="New York">New York</option>
+                        <option value="North Carolina">North Carolina</option>
+                        <option value="North Dakota">North Dakota</option>
+                        <option value="Ohio">Ohio</option>
+                        <option value="Oklahoma">Oklahoma</option>
+                        <option value="Oregon">Oregon</option>
+                        <option value="Pennsylvania">Pennsylvania</option>
+                        <option value="Rhode Island">Rhode Island</option>
+                        <option value="South Carolina">South Carolina</option>
+                        <option value="South Dakota">South Dakota</option>
+                        <option value="Tennessee">Tennessee</option>
+                        <option value="Texas">Texas</option>
+                        <option value="Utah">Utah</option>
+                        <option value="Vermont">Vermont</option>
+                        <option value="Virginia">Virginia</option>
+                        <option value="Washington">Washington</option>
+                        <option value="West Virginia">West Virginia</option>
+                        <option value="Wisconsin">Wisconsin</option>
+                        <option value="Wyoming">Wyoming</option>
+                    </select>
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" name="startDate">
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="endDate" name="endDate">
+                    <button type="submit">Submit</button>
+                    <div id="preferencesContainer">
+                        <!-- Adjusted input field with placeholder text -->
+                        <textarea id="preferences" name="preferences" rows="2" placeholder="Preferences (optional): List out any dietary restrictions, food preferences, activity choices, etc."></textarea>
+                    </div>
+                </form>
+                <div id="errorContainer" style="color: red; margin-top: 10px;"></div>
+            </div>
+    
+            <div id="outputPanel">
+                <div class="section">
+                    <br><br>
+                    <h2>What to Pack</h2>
+                    <div id="output" class="output-container">
+                        <p>Tell us where you're going and when and we'll show you what to pack.</p>
+                    </div>
+                    <br>
+                    <br>
+                    <div id="whatToPack" class="output-container">
+                        <!-- Placeholder for what to pack recommendations -->
+                    </div>
+                    <br>
+                    <br>
+                </div>
+
+                <div class="section where-to-eat-section">
+                    <h2>Where to Eat</h2>
+                    <div class="panel-container">
+                        <div id="restaurantRecommendations" class="panel-container">
+                            <p>Find the top recommended places to eat based on where you're going.</p>
+                        </div>
+                        <div class="panel">
+                            <img src="/dining3.avif" alt="dining" class="small-image dining-image">
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="section what-to-see-section">
+                    <h2>What to See</h2>
+                    <div class="panel-container">
+                        <div class="panel">
+                            <img src="/activity3.jpeg" alt="activity" class="small-image">
+                        </div>
+                        <div id="activityRecommendations" class="panel-container">
+                            <p>Find the top recommended places to see based on where you're going.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Sample Itinerary</h2>
+                    <div id="itineraryRecommendations" class="panel-container">
+                        <p>Please enter your search criteria</p>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div id="inputPanel">
+                <form id="feedbackForm" method="POST" action="/submit_feedback"> <!-- Update form action -->
+                    <label for="feedback">Got feedback or want to see something that's not currently here? If you're comfortable, you can include your name and contact info so we can reach out to you to learn more.</label>
+                    <div>
+                        <br>
+                        <input type="text" id="feedback" name="feedback">
+                    </div>
+                    <div>
+                        <button type="submit" style="margin-bottom: 20px;">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/script_v9.js"></script>
+</body>
+</html>

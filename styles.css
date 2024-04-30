@@ -1,0 +1,304 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* Hide the overflow on the body */
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f9f9f9;
+    color: #212121;
+    padding: 0;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 2px;
+    font-size: 12px;
+    border-bottom: 1px solid #212121;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between; /* Pushes items to the ends */
+    align-items: center; /* Centers items vertically */
+}
+
+/* Center the "TRIPIZU" text */
+.header-content:first-child {
+    flex: 1; /* Takes up remaining space */
+    text-align: center; /* Aligns content within its container */
+}
+
+/* Add this CSS to align the "Sample text" link to the right */
+.align-right {
+    justify-content: flex-end;
+}
+
+.header-content:last-child {
+    margin-right: 20px; /* Add margin to the last header content */
+}
+
+/* Style for the "Sample text" link */
+#about-link {
+    color: #999; /* Light grey font color */
+    text-decoration: none; /* Remove default underline */
+    padding: 8px 16px; /* Add padding to create space around the text */
+    border: 2px solid #666; /* Darker grey border */
+    border-radius: 20px; /* Rounded border */
+}
+
+/* Hover effect for the "Sample text" link */
+#about-link:hover {
+    background-color: #eee; /* Light grey background on hover */
+}
+
+#content {
+    flex: 1; /* Take remaining space */
+    overflow-y: auto; /* Allow content to be scrolled vertically */
+    padding-top: 0px; /* Add padding to compensate for fixed header */
+    font-family: 'Roboto Condensed', sans-serif; /* Roboto Condensed font with fallback to sans-serif */
+    letter-spacing: 1.5px; /* Adjust letter spacing as needed */
+    font-size: 14px; 
+}
+
+#coverImageContainer {
+    background-color: #f9f9f9; /* Match header background color */
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    padding: 0 20px; /* Add padding only on the left and right sides */
+    overflow: hidden; /* Hide overflow to crop image */
+}
+
+#coverImage {
+    background-image: url('cover_image.webp');
+    background-size: cover; /* Cover the container */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    height: 80vh; /* Set the height of the image */
+    width: 100%; /* Set the width of the image */
+    margin-top: 0vh; /* Move the image up by 10% of viewport height */
+    margin-bottom: 2vh; 
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+#inputPanel {
+    display: flex;
+    background-color: #f9f9f9;
+    padding: 0 70px; /* Add padding on the left and right sides */
+    overflow-x: auto;
+}
+
+#inputPanel label {
+    margin-right: 2px;
+    display: inline-block; /* Change the display property to inline-block */
+   
+}
+
+#inputPanel input[type="text"],
+#inputPanel input[type="date"] {
+    margin-right: 20px; /* Adjust the margin between inputs and next labels */
+    margin-bottom: 10px; /* Add margin-bottom to create space between input boxes */
+}
+
+/* Adjust width and alignment of preferences input field */
+#inputPanel #preferencesContainer {
+    display: flex; /* Use flexbox to control layout */
+    align-items: flex-start; /* Align items to the top */
+}
+
+#inputPanel #preferencesContainer textarea[name="preferences"] {
+    flex: 1; /* Allow textarea to expand */
+    resize: none; /* Prevent resizing of the textarea */
+}
+
+/* Ensure textarea expands vertically with content */
+#inputPanel #preferencesContainer textarea[name="preferences"] {
+    height: auto; /* Reset height */
+}
+
+
+/* Adjust width and alignment of preferences input field */
+#inputPanel textarea[name="preferences"] {
+    width: calc(100% - 160px); /* Adjust width to leave space for the submit button */
+    margin-right: 10px; /* Add margin to separate from the submit button */
+    resize: none; /* Prevent resizing of the textarea */
+}
+
+/* Ensure textarea expands vertically with content */
+#inputPanel textarea[name="preferences"] {
+    height: auto; /* Reset height */
+}
+
+/* Style for default grayed out text */
+#inputPanel textarea[name="preferences"]::placeholder {
+    color: #999; /* Gray color */
+    font-family: 'Roboto Condensed', sans-serif; /* Roboto Condensed font with fallback to sans-serif */
+    letter-spacing: 2px; /* Adjust letter spacing as needed */
+    font-size: 12px; 
+}
+
+
+#outputPanel {
+    background-color: #fff;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.output-container {
+    display: flex;
+    justify-content: center;
+}
+
+.section {
+    border-bottom: 1px solid #212121;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    /*width: 100%; */
+    font-family: 'Roboto Condensed', sans-serif; /* Roboto Condensed font with fallback to sans-serif */
+    letter-spacing: 1.5px; /* Adjust letter spacing as needed */
+    font-size: 14px; 
+    padding: 0 60px; /* Add padding of 20px on the left and right sides */
+}
+
+.aboutsection {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    /*width: 100%; */
+    font-family: 'Roboto Condensed', sans-serif; /* Roboto Condensed font with fallback to sans-serif */
+    letter-spacing: 1.5px; /* Adjust letter spacing as needed */
+    font-size: 14px; 
+    padding: 0 60px; /* Add padding of 20px on the left and right sides */
+}
+
+.aboutsection ul {
+    list-style-type: disc; /* Add bullet points */
+    margin-left: 20px; /* Add margin to indent the list */
+}
+
+.aboutsection ul li {
+    margin-bottom: 10px; /* Add margin bottom for spacing between items */
+}
+
+.aboutsection ul ul {
+    list-style-type: circle; /* Use different bullet points for sub-lists */
+}
+
+.aboutsection ul ul li {
+    padding-left: 20px; /* Add padding to indent sub-items */
+}
+
+
+/* Style for the "What to Pack" section */
+#whatToPack {
+    font-size: 14px; /* Set the font size to 14px or adjust as needed */
+    letter-spacing: 1.5px;
+    padding: 0 60px; /* Add padding of 20px on the left and right sides */
+}
+
+
+/* Style specifically for the "Where to Eat" section */
+    .where-to-eat-section {
+    background-color: #f9f9f9; /* Background color for the "Where to Eat" section */
+    padding: 0 60px; /* Add padding of 20px on the left and right sides */
+    margin-bottom: 20px;
+}
+
+
+/* Style specifically for the "What to See" section */
+    .what-to-see-section {
+    background-color: #f9f9f9; /* Background color for the "Where to Eat" section */
+    padding: 0 60px; /* Add padding of 20px on the left and right sides */
+    margin-bottom: 20px;
+}
+
+
+.section h2 {
+    margin-top: 0;
+}
+
+/* Style for panel container */
+.panel-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow panels to wrap if needed */
+    justify-content: space-between; /* Distribute panels evenly */
+    align-items: center; /* Align items vertically */
+}
+
+/* Style for individual panel */
+.panel {
+    flex: 1; /* Each panel takes equal space */
+    padding: 20px; /* Add padding for spacing */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    margin-bottom: 20px; /* Adjust the value as needed for the desired spacing */
+    overflow-x: hidden; /* Add this line */
+}
+
+/* Style for small image */
+.small-image {
+    max-width: 100%; /* Limit the image width to its container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 350px; /* Set a maximum height to constrain image size */
+}
+
+
+/* Style for dining image */
+.small-image.dining-image {
+    max-width: 100%; /* Limit the image width to its container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 350px; /* Set a maximum height to constrain image size */
+    margin-left: 80px; /* Center the image horizontally */
+}
+
+/* Style for activity image */
+.small-image.activity-image {
+    max-width: 100%; /* Limit the image width to its container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 350px; /* Set a maximum height to constrain image size */
+    margin-left: 0px; /* Center the image horizontally */
+}
+
+table {
+    width: auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Style for smaller text */
+.smaller-text {
+    font-size: smaller;
+    color: #666; /* Adjust color as needed */
+}
+
+
+/* Update the size of the text input */
+#feedback {
+    width: 100%; /* Set the width to 100% of its container */
+    max-width: 500px; /* Optionally, set a maximum width to prevent it from becoming too wide */
+    height: 100px; /* Set the height of the text input */
+    margin-bottom: 20px; /* Adjust the value as needed for the desired spacing */
+}
+
+#restaurantRecommendations {
+    margin-right: 60px; /* Add margin on the right side to create horizontal space */
+}
+
+
